@@ -231,4 +231,89 @@ In this step, you deploy the API that you created to a stage called prod.
 
    ![Diagram 15](images/post_man_execution.png) 
 
-   
+3. To validate that the item is indeed inserted into DynamoDB table, go to Dynamo console, select "lambda-apigateway" table, select "Explore table items" button from top right, and the newly inserted item should be displayed.
+
+![Diagram 16](images/DB_with_data.png) 
+
+4. To get all the inserted items from the table, we can use the "list" operation of Lambda using the same API. Pass the following JSON to the API, and it will return all the items from the Dynamo table
+
+```json
+{
+    "operation": "list",
+    "tableName": "lambda-apigateway",
+    "payload": {
+    }
+}
+```
+We have successfully created a serverless API using API Gateway, Lambda, and DynamoDB!. 
+
+Now to match with real world example, let us secure the API Gateway using Amazon Cognito
+
+# **Architecture of Serverless CRUD function with Cognito** 
+
+![Diagram 17](images/APIGW_Cognito.png) 
+
+# **Set-up Amazon Cognito**
+
+1. Create user pool as given in the screen shot below.
+
+![Diagram 18](images/User_pool%20creation.png) 
+
+Final user pool will look like below
+
+![Diagram 19](images/User_pool.png) 
+
+2. Along with User pool, App client will be created using the name you selected for your application
+
+![Diagram 20](images/App_client.png) 
+
+3. Create a user for the cognito pool
+
+![Diagram 21](images/User_creation.png) 
+
+
+# **Authorizer in APIGW**
+
+1. Set-up authorizer
+
+![Diagram 22](images/Add_Authorizer.png) 
+
+2. Completed Authorizer
+
+![Diagram 23](images/Authorizer.png) 
+
+3. Test the authorizer using the above screen shot, select the authorizer, click edit and once saved, you will get a screen to test the token obtained from amazon cognto
+
+![Diagram 24](images/Authorizer_test.png) 
+
+Once you obtain successful response from Authorizer, attach the authorizer to APIGW
+
+# **Attach Authorizer to APIGW**
+
+1. Go to the resource under APIGW, select POST
+2. Under post, click method request and edit the Method request settings and add the authorizer, we created above (http-auth)
+
+![Diagram 25](images/APIGW_Auth.png)
+
+3. After completing the step 2, deploy the app using the stage (PROD) created earlier
+
+4. Now our APIGW is ready with amazon cognito, get the invoke url as given below
+
+![Diagram 26](images/invoke_url.png)
+
+# **Test the API using Postman**
+
+1. Using the invoke URL from step 4 above, test the API using postman
+2. First test without provividing the token and you should see unauthorized access error
+
+![Diagram 27](images/Postman%20without%20token.png)
+
+3. Now let us select the token checkbox, please note, you need provide the same name you have provided under Authorizer for token here
+
+![Diagram 28](images/Postman%20with%20token.png)
+
+
+
+
+
+
