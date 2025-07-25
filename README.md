@@ -13,6 +13,8 @@ Other operations (echo, ping), not related to DynamoDB, that I can use for testi
 
 The following is a sample request payload for a DynamoDB create item operation:
 
+```json
+
 {
     "operation": "create",
     "tableName": "lambda-apigateway",
@@ -45,7 +47,7 @@ We need to create a custom policy for least privilege
 2. Click "Create policy" on top right corner
 3. In the policy editor, click JSON, and paste the following
 
-![Diagram 2](Lambda_custom_policy.png)
+![Diagram 2](images/Lambda_custom_policy.png)
 
 {
     "Version": "2012-10-17",
@@ -94,7 +96,7 @@ Trusted entity type – AWS service, then select Lambda from Use case
 
 Permissions – In the Permissions policies page, in the search bar, type lambda-custom-policy. The newly created policy should show up. Select it, and click Next.
 
-![Diagram 3](Lambda_custom_role.png)
+![Diagram 3](images/Lambda_custom_role.png)
 
 Role name – lambda-apigateway-role.
 
