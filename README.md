@@ -312,6 +312,8 @@ Once you obtain successful response from Authorizer, attach the authorizer to AP
 
 ![Diagram 28](images/Postman%20with%20token.png)
 
+This concludes securing Amazon API Gateway using Amazon Cognito
+
 
 
 
