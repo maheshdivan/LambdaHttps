@@ -101,11 +101,13 @@ To create an execution role
     - Trusted entity type – AWS service, then select Lambda from Use case
 
     - Permissions – In the Permissions policies page, in the search bar, type lambda-custom-policy. The newly created policy should show up. Select it, and click Next.
-
-![Diagram 3](images/Lambda_custom_role.png)
-
+    
     - Role name – lambda-apigateway-role.
 
     - Click "Create role"
+
+![Diagram 3](images/Lambda_custom_role.png)
+
+    
 
 
