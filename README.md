@@ -25,9 +25,11 @@ The following is a sample request payload for a DynamoDB create item operation:
         }
     }
 }
+```
 
 The following is a sample request payload for a DynamoDB read item operation:
 
+```json
 {
     "operation": "read",
     "tableName": "lambda-apigateway",
@@ -37,6 +39,7 @@ The following is a sample request payload for a DynamoDB read item operation:
         }
     }
 }
+```
 
 # **Setup**
 
@@ -48,6 +51,8 @@ We need to create a custom policy for least privilege
 3. In the policy editor, click JSON, and paste the following
 
 ![Diagram 2](images/Lambda_custom_policy.png)
+
+``` json
 
 {
     "Version": "2012-10-17",
@@ -77,6 +82,7 @@ We need to create a custom policy for least privilege
     }
     ]
     }
+```
 
 4. Give name "lambda-custom-policy", and click "Create policy" on botom right
 
