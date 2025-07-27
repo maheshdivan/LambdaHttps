@@ -314,6 +314,32 @@ Once you obtain successful response from Authorizer, attach the authorizer to AP
 
 This concludes securing Amazon API Gateway using Amazon Cognito
 
+# **Performance Testing of Lambda**
+Performance of lambda with 128 MB memory allocation
+
+![Diagram 29](images/Performance_128.png)
+
+![Diagram 30](images/Performance_128_p99.png)
+
+Now I have increased the memory to 256 MB for lambda
+
+![Diagram 31](images/Performance_256.png)
+
+![Diagram 30](images/Performance_256_p99.png)
+
+Now I have increased the memory to 512 MB for lambda
+
+![Diagram 31](images/Performance_512.png)
+
+![Diagram 30](images/Performance_512_p99.png)
+
+# **Why does this happen?**
+When you increase AWS Lambda memory, AWS also allocates more vCPU.
+More CPU means your function executes faster – it parses input, queries DynamoDB, and returns results with less latency.
+
+This is why doubling memory often gives a significant speed boost, especially for CPU-bound or network-heavy workloads.
+
+
 
 
 
